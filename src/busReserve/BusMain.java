@@ -27,13 +27,19 @@ public class BusMain {
                }
             }
             else if(userOpt==2){
-                for(Bus b:buses){
-                    b.displayBusInfo();
-                }
+                    displayBusInfo(buses);
             }
             else if(userOpt==3){
                 System.exit(1);
             }
+        }
+    }
+    public static void displayBusInfo(ArrayList<Bus> buses) {
+        for (Bus bus : buses) {
+            System.out.println("Bus No: " + bus.getBusNo());
+            System.out.println("AC: " + bus.isAc());
+            System.out.println("Capacity: " + bus.getCapacity());
+            System.out.println();
         }
     }
 }

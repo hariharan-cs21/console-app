@@ -27,13 +27,5 @@ public class Bus {
         return capacity;
     }
 
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
-    }
-    public void displayBusInfo(){
-        System.out.println("Bus No: "+busNo);
-        System.out.println("AC: "+ac);
-        System.out.println("Capacity: "+capacity);
-        System.out.println("\n");
-    }
+
 }

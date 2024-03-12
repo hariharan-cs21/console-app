@@ -8,14 +8,15 @@ public class Main {
     public static void main(String[] args) {
         Map<String, User> users = new HashMap<>();
         ArrayList<Products> products=new ArrayList<Products>();
-       ArrayList<Order> myorder=new ArrayList<Order>();
+        ArrayList<Order> myorder=new ArrayList<Order>();
         products.add(new Products(1,79000,"Iphone 14",2));
         products.add(new Products(2,15000,"Nothing 2a",2));
         products.add(new Products(3,3000,"Boat 141",1));
         int userOpt;
         Scanner sc = new Scanner(System.in);
         boolean loggedIn = false;
-    String theName="";
+
+        String theName="";
         while(true) {
             System.out.println("Enter 1 to Register\nEnter 2 to Login \nEnter 3 to Shop\nEnter 4 to change password\nEnter 5 to Exit");
             userOpt=sc.nextInt();
@@ -24,10 +25,10 @@ public class Main {
                 System.out.println("Enter username: ");
                 String regUsername = sc.nextLine();
                 if (!users.containsKey(regUsername)) {
-                    System.out.println("Enter Password");
-                    String regPassword = sc.nextLine();
-                    users.put(regUsername, new User(regUsername, regPassword));
-                    System.out.println("Register Success");
+                    System.out.println("Enter password");
+                    String password=sc.nextLine();
+                    users.put(regUsername,new User(regUsername,password));
+                    System.out.println("Registered Successfully");
                 } else {
                     System.out.println("Username already taken");
                 }
@@ -35,13 +36,18 @@ public class Main {
             else if (userOpt==2) {
                 System.out.println("Enter username:");
                 String username = sc.nextLine();
+
                 System.out.println("Enter password:");
                 String password = sc.nextLine();
                 User user = users.get(username);
                 if (user != null && user.login(username, password)) {
-                    theName=username;
                     System.out.println("Login successful!  "+ "Welcome "+username+"!");
+                    if(!theName.equals(username)){
+                        myorder.clear();
+                    }
+                    theName=username;
                     loggedIn=true;
+
                 } else {
                     System.out.println("Invalid username or password.");
                 }
