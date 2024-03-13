@@ -20,7 +20,7 @@ public class Main {
         while (true) {
             System.out.println("Enter 1 for doctor\nEnter 2 for Patient");
             UserOpt = sc.nextInt();
-            sc.nextLine(); // Consume newline character
+            sc.nextLine(); 
 
             if (UserOpt == 1) {
                 Doctor d = doctors.get("Doctor2");
